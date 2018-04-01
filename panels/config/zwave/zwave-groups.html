@@ -183,6 +183,8 @@ class ZwaveGroups extends Polymer.Element {
         return 'Unknown Node: ' + assoc;
       }
       const id = assoc[0];
+      if id === 255 {
+        return 'All/Hail (id: ' + id + ')';
       const instance = assoc[1];
       const node = this.nodes.find(n => n.attributes.node_id === id);
       if (!node) {
