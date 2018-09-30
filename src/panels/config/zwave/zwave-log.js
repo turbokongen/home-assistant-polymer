@@ -100,7 +100,7 @@ class OzwLog extends EventsMixin(PolymerElement) {
   }
 
   async _refreshLog(ozwWindow) {
-    if (ozwWindow.closed === true) {
+    if (ozwWindow.closed === true || this.$.pwaDialog.opened === false) {
       clearInterval(this._intervalId);
       this.setProperties({ _intervalId: null });
     } else {
